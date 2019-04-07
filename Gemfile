@@ -66,3 +66,5 @@ gem 'dotenv-rails'
 
 # ②LINE bot
 gem 'line-bot-api'
+
+gem 'heroku', '~> 3.99', '>= 3.99.4'
