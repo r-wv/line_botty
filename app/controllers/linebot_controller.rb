@@ -14,18 +14,28 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-            seed1 = select_word
-            seed2 = select_word
-            while seed1 == seed2
-            seed2 = select_word
-            end
+          case event.message['text']
+          when "男"
             message = [{
             type: 'text',
-            text: "キーワード何にしようかな〜〜"
-            },{
-            type: 'text',
-            text: "#{seed1} × #{seed2} !!"
+            text: "じじ"
             }]
+          when "女"
+            message = [{
+            type: 'text',
+            text: "まじじ"
+            }]
+          when "くま"
+            message = [{
+            type: 'text',
+            text: "くま吉プー吉子吉"
+            }]
+          when "いぬ"
+            message = [{
+            type: 'text',
+            text: "ぶぶ"
+            }]
+          end
             client.reply_message(event['replyToken'], message)
         end
         end
