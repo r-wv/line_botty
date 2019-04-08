@@ -15,7 +15,7 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           msg = event.message['text']
-          no = [1..40]
+          no = [*1..40]
           if no.include?(msg.to_i)
             message = [{
             type: 'text',
