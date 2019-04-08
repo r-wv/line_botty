@@ -14,26 +14,17 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::Message
         case event.type
         when Line::Bot::Event::MessageType::Text
-          case event.message['text']
-          when "男"
+          msg = event.message['text']
+          case msg
+          when 1..3
             message = [{
             type: 'text',
-            text: "じじ"
+            text: select_word(msg)
             }]
-          when "女"
+          else
             message = [{
             type: 'text',
-            text: "まじじ"
-            }]
-          when "くま"
-            message = [{
-            type: 'text',
-            text: "くま吉プー吉子吉"
-            }]
-          when "いぬ"
-            message = [{
-            type: 'text',
-            text: "ぶぶ"
+            text: "いないよ！"
             }]
           end
             client.reply_message(event['replyToken'], message)
@@ -51,10 +42,9 @@ private
     }
   end
 
-  def select_word
-    # この中を変えると返ってくるキーワードが変わる
-    seeds = ["アイデア１", "アイデア２", "アイデア３", "アイデア４"]
-    seeds.sample
+  def select_word(num)
+    member = {1: "a", 2: "b", 3: "c"}
+    member[:num]
   end
 
 end
