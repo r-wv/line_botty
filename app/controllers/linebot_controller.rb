@@ -44,8 +44,8 @@ private
 
   def select_word(num)
     num_i = num.to_i
-    member = {1: "a"}
-    member[:num_i]
+    member = ["","a"]
+    return member[num_i]
   end
 
 end
