@@ -45,7 +45,7 @@ private
   def select_word(num)
     member = ["","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s",
               "t","u","v","w","x","y","z","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll"]
-    return member[num]
+    return member[num.to_i]
   end
 
 end
