@@ -16,7 +16,7 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           msg = event.message['text']
           case msg
-          when 1..3
+          when "1"
             message = [{
             type: 'text',
             text: select_word(msg)
@@ -43,7 +43,7 @@ private
   end
 
   def select_word(num)
-    member = {1: "a", 2: "b", 3: "c"}
+    member = {"1": "a"}
     member[:num]
   end
 
