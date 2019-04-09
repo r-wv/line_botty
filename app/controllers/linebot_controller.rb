@@ -15,8 +15,9 @@ class LinebotController < ApplicationController
         case event.type
         when Line::Bot::Event::MessageType::Text
           msg = event.message['text']
-          no = [*1..40]
-          if no.include?(msg.to_i)
+          id = msg.to_i
+          ids = [*1..40]
+          if ids.include?(id)
             message = [{
             type: 'text',
             text: select_word(msg)
@@ -43,9 +44,12 @@ private
   end
 
   def select_word(num)
-    member = ["","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s",
-              "t","u","v","w","x","y","z","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll"]
-    return member[num.to_i]
+    number = num.to_i
+    member = ["","a","b","c","d","e","f","g","h","i",
+              "j","k","l","m","n","o","p","q","r","s",
+              "s","s","t","u","v","w","x","y","z","aa",
+              "bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll"]
+    return member[number]
   end
 
 end
