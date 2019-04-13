@@ -16,11 +16,10 @@ class LinebotController < ApplicationController
         when Line::Bot::Event::MessageType::Text
           msg = event.message['text']
           id = msg.to_i
-          ids = [*1..40]
-          if ids.include?(id)
+          if find_name(id)
             message = [{
             type: 'text',
-            text: select_word(msg)
+            text: find_name(id)
             }]
           else
             message = [{
