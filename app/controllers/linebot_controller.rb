@@ -52,7 +52,7 @@ private
   end
 
   def find_name(num)
-    member = Member.find(num)
+    member = Member.find_by(number: num)
     if member
       member.name
     else
