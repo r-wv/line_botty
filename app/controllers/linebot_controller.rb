@@ -51,4 +51,13 @@ private
     return member[number]
   end
 
+  def find_name(num)
+    member = Member.find(num)
+    if member
+      member.name
+    else
+      nil
+    end
+  end
+
 end
